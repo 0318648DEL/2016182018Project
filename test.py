@@ -1,28 +1,19 @@
-import tkinter
+from tkinter import *
+from tkinter import font
+import tkinter.messagebox
+tk=Tk()
+tk.geometry("400x600+750+200")
+DataList=[]
+TitleFont=font
 
-window = tkinter.Tk()
-window.title("YUN DAE HEE")
-window.geometry("640x400+100+100")
-window.resizable(True, True)
+def InitTopText():
+    TempFont=font.Font(tk,size=20,weight='bold',family='Consolas')
+    MainText=Label(tk,font=TempFont,text="[서울시 근린시설 검색 App]")
+    MainText.pack()
+    MainText.place(x=20)
 
-
-def check():
-    label.config(text=RadioVariety_1.get())
-
-
-labelframe = tkinter.LabelFrame(window, text="플랫폼 선택")
-labelframe.pack()
-
-RadioVariety_1 = tkinter.StringVar()
-RadioVariety_1.set("미선택")
-
-radio1 = tkinter.Radiobutton(labelframe, text="Python", value="가능", variable=RadioVariety_1, command=check)
-radio1.pack()
-radio2 = tkinter.Radiobutton(labelframe, text="C/C++", value="부분 가능", variable=RadioVariety_1, command=check)
-radio2.pack()
-radio3 = tkinter.Radiobutton(labelframe, text="JSON", value="불가능", variable=RadioVariety_1, command=check)
-radio3.pack()
-label = tkinter.Label(labelframe, text="None")
-label.pack()
-
-window.mainloop()
+def InitSearchListBox():
+    global SearchListBox
+    ListBoxScrollbar=Scrollbar(tk)
+    ListBoxScrollbar.pack()
+    ListBoxScrollbar.place(x=150,y=50)
